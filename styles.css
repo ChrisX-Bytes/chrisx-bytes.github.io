@@ -1,0 +1,95 @@
+/* 基础按钮样式 */
+.button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;  /* 圆角效果 */
+  background: #ffa500; /* 按钮颜色 */
+  color: white;
+  cursor: pointer;
+  /* 阴影效果 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 水平偏移 垂直偏移 模糊半径 颜色 */
+  /* 平滑过渡效果 */
+  transition: all 0.3s ease;
+}
+/* 悬停时效果（可选） */
+.button:hover {
+  transform: translateY(-2px);  /* 轻微上移 */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* 悬停时阴影变大 */
+}
+/* 点击效果（可选） */
+.button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.bottom {
+  position: absolute;
+  left: 51.6%;
+  top: 90%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* 基础按钮样式 */
+.button2 {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;  /* 圆角效果 */
+  background: #7CFC00; /* 按钮颜色 */
+  color: white;
+  cursor: pointer;
+  /* 阴影效果 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 水平偏移 垂直偏移 模糊半径 颜色 */
+  /* 平滑过渡效果 */
+  transition: all 0.3s ease;
+}
+/* 悬停时效果（可选） */
+.button2:hover {
+  transform: translateY(-2px);  /* 轻微上移 */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* 悬停时阴影变大 */
+}
+/* 点击效果（可选） */
+.button2:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* 基础按钮样式 */
+.button3 {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;  /* 圆角效果 */
+  background: #3C3B6E; /* 按钮颜色 */
+  color: white;
+  cursor: pointer;
+  /* 阴影效果 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 水平偏移 垂直偏移 模糊半径 颜色 */
+  /* 平滑过渡效果 */
+  transition: all 0.3s ease;
+}
+/* 悬停时效果（可选） */
+.button2:hover {
+  transform: translateY(-2px);  /* 轻微上移 */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* 悬停时阴影变大 */
+}
+/* 点击效果（可选） */
+.button2:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* html,
+body,
+#app{
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  width:100vw;
+} */
