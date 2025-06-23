@@ -73,12 +73,12 @@
   transition: all 0.3s ease;
 }
 /* 悬停时效果（可选） */
-.button2:hover {
+.button3:hover {
   transform: translateY(-2px);  /* 轻微上移 */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* 悬停时阴影变大 */
 }
 /* 点击效果（可选） */
-.button2:active {
+.button3:active {
   transform: translateY(1px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
