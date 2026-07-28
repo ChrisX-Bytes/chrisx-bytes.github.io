@@ -239,12 +239,12 @@
         const footerPlaceholder = document.getElementById('footer-placeholder');
 
         if (!headerPlaceholder || !footerPlaceholder) {
-            console.warn('未找到占位元素，请在页面中添加 <div id="header-placeholder"></div> 和 <div id="footer-placeholder"></div>');
+            console.warn('未找到占位元素');
             if (callback) callback();
             return;
         }
 
-        // ✅ 直接使用绝对路径，从根目录获取组件
+        // 直接使用绝对路径（从根目录开始）
         const headerUrl = '/assets/components/header.html';
         const footerUrl = '/assets/components/footer.html';
 
