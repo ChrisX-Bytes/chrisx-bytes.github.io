@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>一个暂时没用的网站 · 项目</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="../assets/js/langs.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <main class="pages">
+        <section id="page-tools" class="page active">
+            <h2 class="page-title" data-i18n="tools_title"></h2>
+            <p class="page-desc" data-i18n="tools_desc"></p>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="icon">📋</div>
+                    <h3 data-i18n="tools_card_1"></h3>
+                    <p data-i18n="tools_card_1_desc"></p>
+                    <span class="tool-tag" data-i18n="tools_card_1_tag"></span>
+                </div>
+                <div class="card">
+                    <div class="icon">⏱️</div>
+                    <h3 data-i18n="tools_card_2"></h3>
+                    <p data-i18n="tools_card_2_desc"></p>
+                    <span class="tool-tag" data-i18n="tools_card_2_tag"></span>
+                </div>
+                <div class="card">
+                    <div class="icon">📊</div>
+                    <h3 data-i18n="tools_card_3"></h3>
+                    <p data-i18n="tools_card_3_desc"></p>
+                    <span class="tool-tag" data-i18n="tools_card_3_tag"></span>
+                </div>
+                <div class="card">
+                    <div class="icon">🔗</div>
+                    <h3 data-i18n="tools_card_4"></h3>
+                    <p data-i18n="tools_card_4_desc"></p>
+                    <span class="tool-tag" data-i18n="tools_card_4_tag"></span>
+                </div>
+            </div>
+            <div class="todo-widget" id="todoWidget">
+                <h3 data-i18n="tools_todo_title"></h3>
+                <p class="sub" data-i18n="tools_todo_sub"></p>
+                <div class="todo-input-group">
+                    <input type="text" id="todoInput" data-i18n-placeholder="tools_todo_placeholder" placeholder="" maxlength="60" />
+                    <button class="btn" id="todoAddBtn" data-i18n="tools_todo_add"></button>
+                </div>
+                <ul class="todo-list" id="todoList">
+                    <li class="todo-empty" data-i18n="tools_todo_empty"></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
