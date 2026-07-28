@@ -3,7 +3,7 @@ backend:
   name: github
   repo: ChrisX-Bytes/chrisx-bytes.github.io
   branch: main
-  base_url: https://chrisx-bytes.github.io/
+#  base_url: https://chrisx-bytes.github.io/
 
 # 媒体文件存放位置 (上传的图片等)
 media_folder: 'assets/images'
