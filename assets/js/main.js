@@ -7,17 +7,15 @@
         return path.split('.').reduce((acc, part) => acc && acc[part], obj);
     }
 
-    // ===== 新增：根据当前路径获取标题的语言键 =====
+    // ===== 根据当前路径获取标题的语言键 =====
     function getPageTitleKey() {
         const path = window.location.pathname;
-        // 去掉末尾斜杠和 index.html
         let p = path.replace(/\/$/, '').replace(/\/index\.html$/, '');
         if (p === '' || p === '/') return 'page_title_home';
-        // 精确匹配目录（支持 /tools、/tools/、/tools/xxx 等）
         if (p.endsWith('/tools') || p.includes('/tools/')) return 'page_title_tools';
         if (p.endsWith('/news') || p.includes('/news/')) return 'page_title_news';
         if (p.endsWith('/about') || p.includes('/about/')) return 'page_title_about';
-        return 'page_title_home'; // fallback
+        return 'page_title_home';
     }
 
     function applyLanguage() {
@@ -54,7 +52,6 @@
             }
         }
 
-        // ===== 新增：设置页面标题 =====
         const titleKey = getPageTitleKey();
         const titleTranslation = getNestedValue(langData[lang], titleKey);
         if (titleTranslation) {
@@ -236,7 +233,7 @@
         });
     }
 
-    // ===== 加载公共组件 =====
+    // ===== 加载公共组件（使用绝对路径） =====
     function loadComponents(callback) {
         const headerPlaceholder = document.getElementById('header-placeholder');
         const footerPlaceholder = document.getElementById('footer-placeholder');
@@ -247,22 +244,9 @@
             return;
         }
 
-        const path = window.location.pathname;
-        let assetsPrefix = './assets/';
-        if (path.includes('/tools/') || path.includes('/news/') || path.includes('/about/')) {
-            assetsPrefix = '../assets/';
-        }
-
-        function fixPaths(html) {
-            let basePath = './';
-            if (path.includes('/tools/') || path.includes('/news/') || path.includes('/about/')) {
-                basePath = '../';
-            }
-            return html.replace(/href="\.\//g, `href="${basePath}`);
-        }
-
-        const headerUrl = assetsPrefix + 'components/header.html';
-        const footerUrl = assetsPrefix + 'components/footer.html';
+        // ✅ 直接使用绝对路径，从根目录获取组件
+        const headerUrl = '/assets/components/header.html';
+        const footerUrl = '/assets/components/footer.html';
 
         Promise.all([
             fetch(headerUrl).then(res => {
@@ -274,12 +258,8 @@
                 return res.text();
             })
         ]).then(([headerHtml, footerHtml]) => {
-            headerHtml = fixPaths(headerHtml);
-            footerHtml = fixPaths(footerHtml);
-
             headerPlaceholder.innerHTML = headerHtml;
             footerPlaceholder.innerHTML = footerHtml;
-
             if (callback) callback();
         }).catch(err => {
             console.error('加载公共组件失败:', err);

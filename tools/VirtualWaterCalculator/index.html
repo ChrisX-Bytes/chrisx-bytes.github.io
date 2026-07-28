@@ -265,9 +265,18 @@
                 max-height: 220px;
             }
         }
+
+        #footer-placeholder {
+            display: none;
+        }
     </style>
+
+    <script src="/assets/js/langs.js"></script>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script src="/assets/js/main.js"></script>
 </head>
 <body>
+    <div id="header-placeholder"></div>
 
     <div class="container">
         <!-- 标题 -->
@@ -294,7 +303,7 @@
     </div>
 
     <!-- ===== 先加载外部数据文件 ===== -->
-    <script src="./virtual_water_data.js"></script>
+    <script src="virtual_water_data.js"></script>
 
     <!-- ===== 主程序逻辑 ===== -->
     <script>
@@ -304,7 +313,7 @@
             // 检查数据是否加载成功
             if (typeof VIRTUAL_WATER === 'undefined') {
                 document.getElementById('result').innerHTML = 
-                    '<span class="error">❌ 虚拟水数据文件加载失败。</span>';
+                    '<span class="error">❌ 数据文件加载失败，请确保 virtual_water_data.js 与 HTML 在同一目录。</span>';
                 return;
             }
 
@@ -440,6 +449,8 @@
             console.log('✅ 虚拟水计算器已加载，数据条目数：', Object.keys(VIRTUAL_WATER).length);
         })();
     </script>
+
+    <div id="footer-placeholder"></div>
 
 </body>
 </html>

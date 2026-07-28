@@ -40,8 +40,7 @@ const LANG_DATA = {
         tools_todo_empty: '还没有任务，添加一条吧 ✨',
         tools_card_1_icon: '💧',
         tools_card_1: '虚拟水计算器',
-        tools_card_1_desc: '虚拟水是生产产品和服务所需的水资源总量。',
-        tools_card_1_tag: '',
+        tools_card_1_desc: '虚拟水指生产产品和服务所需的水资源总量。<br>快去测一测你一顿吃了多少虚拟水吧！',
 
         tools_card_2_icon: '⏱️',
         tools_card_2: '计时器',
