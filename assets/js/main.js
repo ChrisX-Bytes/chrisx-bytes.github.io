@@ -7,6 +7,19 @@
         return path.split('.').reduce((acc, part) => acc && acc[part], obj);
     }
 
+    // ===== 新增：根据当前路径获取标题的语言键 =====
+    function getPageTitleKey() {
+        const path = window.location.pathname;
+        // 去掉末尾斜杠和 index.html
+        let p = path.replace(/\/$/, '').replace(/\/index\.html$/, '');
+        if (p === '' || p === '/') return 'page_title_home';
+        // 精确匹配目录（支持 /tools、/tools/、/tools/xxx 等）
+        if (p.endsWith('/tools') || p.includes('/tools/')) return 'page_title_tools';
+        if (p.endsWith('/news') || p.includes('/news/')) return 'page_title_news';
+        if (p.endsWith('/about') || p.includes('/about/')) return 'page_title_about';
+        return 'page_title_home'; // fallback
+    }
+
     function applyLanguage() {
         const lang = 'zh';
 
@@ -39,6 +52,13 @@
                     emptyLi.textContent = translation;
                 }
             }
+        }
+
+        // ===== 新增：设置页面标题 =====
+        const titleKey = getPageTitleKey();
+        const titleTranslation = getNestedValue(langData[lang], titleKey);
+        if (titleTranslation) {
+            document.title = titleTranslation;
         }
 
         document.documentElement.lang = 'zh-CN';
@@ -227,14 +247,12 @@
             return;
         }
 
-        // 根据当前路径决定 assets 前缀
         const path = window.location.pathname;
         let assetsPrefix = './assets/';
         if (path.includes('/tools/') || path.includes('/news/') || path.includes('/about/')) {
             assetsPrefix = '../assets/';
         }
 
-        // 修正组件内链接路径
         function fixPaths(html) {
             let basePath = './';
             if (path.includes('/tools/') || path.includes('/news/') || path.includes('/about/')) {

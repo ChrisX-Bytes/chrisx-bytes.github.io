@@ -1,12 +1,18 @@
 // ===== assets/js/langs.js =====
 const LANG_DATA = {
     zh: {
+        // ---------- 各页面标题 ----------
+        page_title_home: '一个暂时没用的网站 · 首页',
+        page_title_tools: '一个暂时没用的网站 · 项目',
+        page_title_news: '一个暂时没用的网站 · 新闻',
+        page_title_about: '一个暂时没用的网站 · 关于',
+
         brand: '非常闲的网站',
         nav_home: '首页',
         nav_tools: '项目',
         nav_news: '新闻',
         nav_about: '关于',
-        // home_title: '用 <span class="highlight">科技</span> 点亮<br />每一个灵感',
+        // home_title: '<span class="highlight">高亮</span>',
         home_title: '这是一个没什么用的网站',
         home_desc: '至少暂时是',
         home_btn_tools: '探索项目 →',
@@ -32,18 +38,26 @@ const LANG_DATA = {
         tools_todo_placeholder: '输入任务…',
         tools_todo_add: '添加',
         tools_todo_empty: '还没有任务，添加一条吧 ✨',
-        tools_card_1: '待办清单',
-        tools_card_1_desc: '快速记录任务，标记完成或删除，保持条理。',
+        tools_card_1_icon: '💧',
+        tools_card_1: '虚拟水计算器',
+        tools_card_1_desc: '虚拟水是生产产品和服务所需的水资源总量。',
+        tools_card_1_tag: '',
+
+        tools_card_2_icon: '⏱️',
         tools_card_2: '计时器',
         tools_card_2_desc: '专注工作或休息，自定义时长，培养时间感知。',
+        tools_card_2_tag: '即将上线',
+
+        tools_card_3_icon: '📊',
         tools_card_3: '数据看板',
         tools_card_3_desc: '可视化关键指标，一目了然掌握进度与趋势。',
+        tools_card_3_tag: '即将上线',
+
         tools_card_4: '链接收藏',
         tools_card_4_desc: '整理常用链接，分类管理，快速访问。',
-        tools_card_1_tag: '交互可用 ↓',
-        tools_card_2_tag: '即将上线',
-        tools_card_3_tag: '即将上线',
         tools_card_4_tag: '即将上线',
+        tools_card_4_icon: '🔗',
+
 
         // 新闻页
         news_title: '📰 最新<span>动态</span>',
