@@ -8,5 +8,15 @@
 <body>
     <!-- 加载 Decap CMS 的核心 JS 库 -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+        // 显式初始化 CMS，并指定配置文件路径（可选，默认会找 admin/config.yml）
+        CMS.init({
+            config: {
+                load: function() {
+                    return fetch('./config.yml').then(res => res.text());
+                }
+            }
+        });
+    </script>
 </body>
 </html>
