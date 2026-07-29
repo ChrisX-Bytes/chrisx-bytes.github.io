@@ -57,6 +57,12 @@ const LANG_DATA = {
         tools_card_4_tag: '即将上线',
         tools_card_4_icon: '🔗',
 
+        back_to_list: '← 返回项目列表',
+        // 工具占位内容（用于“即将上线”的工具）
+        tools_placeholder_timer: '⏱️ 计时器\n专注工作或休息，自定义时长，培养时间感知。\n即将上线',
+        tools_placeholder_dashboard: '📊 数据看板\n可视化关键指标，一目了然掌握进度与趋势。\n即将上线',
+        tools_placeholder_links: '🔗 链接收藏\n整理常用链接，分类管理，快速访问。\n即将上线',
+
 
         // 新闻页
         news_title: '📰 最新<span>动态</span>',
