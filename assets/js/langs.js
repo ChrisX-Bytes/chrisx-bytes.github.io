@@ -39,7 +39,7 @@ const LANG_DATA = {
         tools_todo_add: '添加',
         tools_todo_empty: '还没有任务，添加一条吧 ✨',
         tools_card_1_icon: '💧',
-        tools_card_1: '虚拟水计算器',
+        tools_card_1: '食物虚拟水计算器',
         tools_card_1_desc: '虚拟水指生产产品和服务所需的水资源总量。<br>快去测一测你一顿吃了多少虚拟水吧！',
 
         tools_card_2_icon: '⏱️',
@@ -75,8 +75,6 @@ const LANG_DATA = {
         about_p1: '',
         about_mission: '敬请期待……',
         about_p2: '',
-        about_team_title: '',
-        team_members: [],
 
         footer_copyright: '没用的网站 · 2026'
     }

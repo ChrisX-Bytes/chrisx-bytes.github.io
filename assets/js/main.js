@@ -37,7 +37,7 @@
             }
         });
 
-        renderNewsItems(lang);
+        renderNewsItems();
         renderTeamMembers(lang);
 
         const todoList = document.getElementById('todoList');
@@ -61,26 +61,38 @@
         document.documentElement.lang = 'zh-CN';
     }
 
-    function renderNewsItems(lang) {
+    // ===== 从独立的 news.json 加载新闻 =====
+    function renderNewsItems() {
         const container = document.getElementById('newsList');
         if (!container) return;
-        const items = langData[lang].news_items || [];
-        if (items.length === 0) {
-            container.innerHTML = '<p class="todo-empty">暂无新闻。</p>';
-            return;
-        }
-        let html = '';
-        items.forEach(item => {
-            html += `
-                <article class="news-item">
-                    <span class="news-date">${item.date}</span>
-                    <h3>${item.title}</h3>
-                    <p>${item.desc}</p>
-                    <span class="news-tag">${item.tag}</span>
-                </article>
-            `;
-        });
-        container.innerHTML = html;
+
+        fetch('/assets/data/news.json')
+            .then(res => {
+                if (!res.ok) throw new Error();
+                return res.json();
+            })
+            .then(items => {
+                if (!items || items.length === 0) {
+                    container.innerHTML = '<p class="todo-empty">暂无新闻</p>';
+                    return;
+                }
+                let html = '';
+                items.forEach(item => {
+                    html += `
+                        <article class="news-item">
+                            <span class="news-date">${item.date}</span>
+                            <h3>${item.title}</h3>
+                            <p>${item.desc}</p>
+                            <span class="news-tag">${item.tag}</span>
+                        </article>
+                    `;
+                });
+                container.innerHTML = html;
+            })
+            .catch(() => {
+                // 文件不存在或网络错误，友好提示，不输出错误到控制台
+                container.innerHTML = '<p class="todo-empty">暂无新闻</p>';
+            });
     }
 
     function renderTeamMembers(lang) {
@@ -244,7 +256,6 @@
             return;
         }
 
-        // 直接使用绝对路径（从根目录开始）
         const headerUrl = '/assets/components/header.html';
         const footerUrl = '/assets/components/footer.html';
 
