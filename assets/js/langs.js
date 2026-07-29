@@ -71,10 +71,10 @@ const LANG_DATA = {
 
         // 关于页
         about_title: '🕸️ 关于此<span>网站</span>',
-        about_desc: '此网站用途待定。',
-        about_p1: '',
-        about_mission: '敬请期待……',
-        about_p2: '',
+        about_desc: '这是一个网站。',
+        about_p1: '此网站目前没有特定用途',
+        about_highlight: '此网站从2026年7月26日公开向公网',
+        about_p2: '你可以在这里看到一些没用的东西',
 
         footer_copyright: '没用的网站 · 2026'
     }
